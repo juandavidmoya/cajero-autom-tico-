@@ -2,9 +2,10 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        final int salida_inicial = 2000;
-        int opcion;
-        float ingreso, retiro, saldoActual;
+       float  saldo = 2000;
+        int opcion = 0;
+        float ingreso, retiro;
+        while (opcion!= 3) {
 
         opcion = Integer.parseInt(JOptionPane.showInputDialog("""
                 bienbenidos a su cajero automatico bancolombia
@@ -14,17 +15,17 @@ public class Main {
         switch (opcion) {
             case 1:
                 ingreso = Float.parseFloat(JOptionPane.showInputDialog("digite la cantidad que desea ingresar \n"));
-                saldoActual = salida_inicial + ingreso;
-                JOptionPane.showMessageDialog(null, "dinero en cuenta: " + saldoActual);
+                saldo = (saldo + ingreso);
+                JOptionPane.showMessageDialog(null, "dinero en cuenta: " + saldo);
                 break;
             case 2:
                 retiro = Float.parseFloat(JOptionPane.showInputDialog("digite la cantidad que desea retirar"));
 
-                if (retiro > salida_inicial) {
+                if (retiro > saldo) {
                     JOptionPane.showMessageDialog(null, "no cuenta con dinero suficiente para retirar");
                 } else {
-                    saldoActual = salida_inicial - retiro;
-                    JOptionPane.showMessageDialog(null, "dinero en cuenta:" + saldoActual);
+                    retiro= (saldo - retiro);
+                    JOptionPane.showMessageDialog(null, "dinero en cuenta:" + saldo);
 
                 }
                 break;
@@ -35,6 +36,7 @@ public class Main {
                 break;
         }
     }
+}
 }
 
 
